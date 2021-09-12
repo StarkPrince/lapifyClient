@@ -27,6 +27,8 @@ app.get('/', (req, res) =>
     res.send('Hello from lapify')
 })
 
-mongoose.connect("mongodb+srv://StarkPrince:M14t85u2m1nt93S@cluster0.bmaqq.mongodb.net/lapify", { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => app.listen(5000, () => console.log(`Server Running on Port: http://localhost:5000`)))
+const PORT = process.env.PORT || 5000;
+
+mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost${PORT}`)))
     .catch((error) => console.log(`${error} did not connect`));
