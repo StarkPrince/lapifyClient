@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
-import { Schema } from 'mongoose';
 
-const ProjectSchema = new Schema({
+const ProjectSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -9,4 +8,6 @@ const ProjectSchema = new Schema({
     timeStamps: [Number]
 });
 
-export default mongoose.model('Project', ProjectSchema);
+const Project = mongoose.model('Project', ProjectSchema);
+
+export default Project;

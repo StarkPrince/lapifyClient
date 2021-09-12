@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import lapRoutes from './routes/Lap.js';
+import lapRoutes from './routes/Lapify.js';
 import dotenv from 'dotenv';
 
 
@@ -27,6 +27,6 @@ app.get('/', (req, res) =>
     res.send('Hello from lapify')
 })
 
-mongoose.connect("mongodb://localhost:27017/lapify", { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => app.listen(3000, () => console.log(`Server Running on Port: http://localhost:3000`)))
+mongoose.connect("mongodb+srv://StarkPrince:M14t85u2m1nt93S@cluster0.bmaqq.mongodb.net/lapify", { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => app.listen(5000, () => console.log(`Server Running on Port: http://localhost:5000`)))
     .catch((error) => console.log(`${error} did not connect`));
