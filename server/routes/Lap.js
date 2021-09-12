@@ -1,5 +1,5 @@
 import express from 'express';
-import { getLapTimes, addLapTime } from '../controllers/post';
+import { getLapTimes, addLapTime } from '../controllers/post.js';
 
 const router = express.Router();
 
