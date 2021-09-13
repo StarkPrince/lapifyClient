@@ -24,10 +24,10 @@ export const getProject = (id) => async (dispatch) =>
     }
 }
 
-export const createProject = (project) => async (dispatch) =>
+export const createProject = (projectName) => async (dispatch) =>
 {
     try {
-        const { data } = await api.createProject(project)
+        const { data } = await api.createProject(projectName)
         dispatch({ type: CREATE_PROJECT, payload: data });
     }
     catch (error) {
@@ -35,10 +35,10 @@ export const createProject = (project) => async (dispatch) =>
     }
 }
 
-export const addLap = () => async (dispatch) =>
+export const addLap = (id) => async (dispatch) =>
 {
     try {
-        const { data } = await api.addLap()
+        const { data } = await api.addLap(id)
         dispatch({ type: ADD_LAP, payload: data });
     }
     catch (error) {

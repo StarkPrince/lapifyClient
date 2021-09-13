@@ -7,6 +7,7 @@ function App()
     <div className="App">
       <Header />
       <Content />
+      <Form />
     </div>
   );
 }

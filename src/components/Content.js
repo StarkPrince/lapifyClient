@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addLap, getProject, getProjects, createProject } from '../actions/lap'
+// import { addLap, getProject, getProjects, createProject } from '../actions/lap'
+import { getProjects } from '../actions/lap'
+import Project from './Project'
 
 
 function Content()
 {
     const dispatch = useDispatch()
-    const [projects, setProjects] = useState({})
-    const fn = async () =>
+    useEffect(() =>
     {
-        const res = await getProjects()
-        console.log(res)
-    }
-    fn();
+        dispatch(getProjects())
+    }, [dispatch])
+
+    const projects = useSelector(state => state.projectReducer)
+
+
     return (
-        <div>
-            <button onClick={addLap}>Lap</button>
+        <div className="container">
+            {projects.map(project => <Project key={project._id} project={project} />)}
         </div>
     )
 }

@@ -1,14 +1,17 @@
-import { ADD_LAP, GET_ALL, GET_PROJECT, CREATE_PROJECT } from '../constants/actionType'
+import { ADD_LAP, GET_PROJECT, CREATE_PROJECT } from '../constants/actionType'
 
-export default (state = [], action) =>
+const lapReducer = (state = {}, action) =>
 {
     switch (action.type) {
         case ADD_LAP:
+            return action.payload
         case GET_PROJECT:
-        case GET_ALL:
+            return action.payload
         case CREATE_PROJECT:
             return action.payload
         default:
             return state
     }
 }
+
+export default lapReducer
