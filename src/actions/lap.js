@@ -17,7 +17,7 @@ export const getProject = (id) => async (dispatch) =>
 {
     try {
         const { data } = await api.getProject(id)
-        cdispatch({ type: GET_PROJECT, payload: data });
+        dispatch({ type: GET_PROJECT, payload: data });
     }
     catch (error) {
         console.log(error)

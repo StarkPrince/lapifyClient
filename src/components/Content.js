@@ -1,18 +1,18 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addLap, getProject, getProjects, createProject } from '../actions/lap'
+
 
 function Content()
 {
-    const [laps, setLaps] = useState([]);
-    function addLap()
+    const dispatch = useDispatch()
+    const [projects, setProjects] = useState({})
+    const fn = async () =>
     {
-        const lap = {
-            id: Date.now(),
-            time: Date.now()
-        }
-        setLaps([...laps, lap])
-        console.log(laps)
+        const res = await getProjects()
+        console.log(res)
     }
+    fn();
     return (
         <div>
             <button onClick={addLap}>Lap</button>
