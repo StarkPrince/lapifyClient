@@ -1,21 +1,26 @@
 import React from 'react'
+import { createProject } from '../actions/lap'
+import { useDispatch, useSelector } from 'react-redux'
+
 
 function Form()
 {
+    const dispatch = useDispatch();
+
+    const project = async (e) =>
+    {
+        e.preventDefault();
+        const projectName = e.target[0].value;
+        createProject(projectName);
+    }
+
     return (
-        <div class="row g-3 align-items-center">
-            <div class="col-auto">
-                <label for="inputPassword6" class="col-form-label">Password</label>
-            </div>
-            <div class="col-auto">
-                <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline" />
-            </div>
-            <div class="col-auto">
-                <span id="passwordHelpInline" class="form-text">
-                    Must be 8-20 characters long.
-                </span>
-            </div>
-        </div>
+        <div className="container d-inline-flex p-2">
+            <form className="col-md-6 offset-md-4 text-center d-inline-flex p-2" onSubmit={project}>
+                <input id="newProject" className="form-control" name="newProject" placeholder="New Project Name" />
+                <button className="btn btn-primary">Add New Project</button>
+            </form>
+        </div >
     )
 }
 
