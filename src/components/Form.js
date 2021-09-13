@@ -11,7 +11,9 @@ function Form()
     {
         e.preventDefault();
         const projectName = e.target[0].value;
-        createProject(projectName);
+        if (projectName) {
+            await createProject(projectName);
+        }
     }
 
     return (
