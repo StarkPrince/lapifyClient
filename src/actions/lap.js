@@ -28,7 +28,7 @@ export const createProject = (projectName) => async (dispatch) =>
 {
     try {
         console.log('hemlo');
-        const { data } = await api.newProject(projectName)
+        const { data } = await api.createProject(projectName)
         dispatch({ type: CREATE_PROJECT, payload: data });
     }
     catch (error) {
