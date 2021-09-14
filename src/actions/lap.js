@@ -17,7 +17,7 @@ export const getProject = (id) => async (dispatch) =>
 {
     try {
         const { data } = await api.getProject(id)
-        dispatch({ type: GET_PROJECT, payload: data });
+        return dispatch({ type: GET_PROJECT, payload: data });
     }
     catch (error) {
         console.log(error)
@@ -27,20 +27,20 @@ export const getProject = (id) => async (dispatch) =>
 export const createProject = (projectName) => async (dispatch) =>
 {
     try {
-        console.log('hemlo');
-        const { data } = await api.createProject(projectName)
-        dispatch({ type: CREATE_PROJECT, payload: data });
+        await api.createProject(projectName)
+        const { data } = await api.getProjects()
+        return dispatch({ type: CREATE_PROJECT, payload: data });
     }
     catch (error) {
         console.log(error)
     }
 }
 
-export const addLap = (id) => async (dispatch) =>
+export const addLap = async (_id) =>
 {
     try {
-        const { data } = await api.addLap(id)
-        dispatch({ type: ADD_LAP, payload: data });
+        const { data } = await api.addLap(_id)
+        return data;
     }
     catch (error) {
         console.log(error)

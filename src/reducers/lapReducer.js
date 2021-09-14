@@ -7,8 +7,6 @@ const lapReducer = (state = {}, action) =>
             return action.payload
         case GET_PROJECT:
             return action.payload
-        case CREATE_PROJECT:
-            return action.payload
         default:
             return state
     }

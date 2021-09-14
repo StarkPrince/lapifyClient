@@ -1,15 +1,22 @@
 import Header from './components/Header';
 import Content from './components/Content';
-import Form from './components/Form'
+import Project from './components/Project';
+import
+{
+  BrowserRouter as Router, Switch, Route, Link
+} from "react-router-dom";
+
 
 function App()
 {
   return (
-    <div className="App">
+    <Router>
       <Header />
-      <Form />
-      <Content />
-    </div>
+      <Switch>
+        <Route path="/:id" component={Project} />
+        <Route path="/" component={Content} />
+      </Switch>
+    </Router>
   );
 }
 
