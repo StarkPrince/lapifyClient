@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 // import { addLap, getProject, getProjects, createProject } from '../actions/lap'
 import { getProjects, createProject } from '../actions/lap'
-import Project from './Project'
+// import Project from './Project'
 
 
 function Content()

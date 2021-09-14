@@ -3,7 +3,7 @@ import Content from './components/Content';
 import Project from './components/Project';
 import
 {
-  BrowserRouter as Router, Switch, Route, Link
+  BrowserRouter as Router, Switch, Route
 } from "react-router-dom";
 
 
