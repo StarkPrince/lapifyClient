@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'http://flapify.herokuapp.com/lap/'
+const url = 'https://flapify.herokuapp.com/lap/'
 
 export const getProjects = () => axios.get(url + 'projects');
 export const getProject = (projectId) => axios.get(url + projectId);
