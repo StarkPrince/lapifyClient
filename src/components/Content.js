@@ -18,6 +18,7 @@ function Content()
     {
         e.preventDefault();
         dispatch(createProject(e.target[0].value));
+        e.target[0].value = '';
     }
     const projects = useSelector(state => state.projectReducer)
 

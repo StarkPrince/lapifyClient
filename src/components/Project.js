@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-// import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { addLap, getProject } from '../actions/lap'
+import { addLap, getProject, deleteProject } from '../actions/lap'
 
 const timeParser = (time) =>
 {
@@ -18,24 +18,27 @@ const timeParser = (time) =>
 function Project(props)
 {
     const _id = props.match.params.id;
-    var ts = [];
 
     const dispatch = useDispatch();
+    const history = useHistory();
+
     useEffect(() => { dispatch(getProject(_id)); }, [dispatch, _id]);
+    const { name, timeStamps: ts } = useSelector(state => state.lapReducer);
 
-    const project = useSelector(state => state.lapReducer);
-    ts = project.timeStamps;
-    const { name } = project;
-
-    const lap = async () =>
-    {
-        await addLap(_id);
-        dispatch(getProject(_id));
-    }
+    const lap = async () => { dispatch(addLap(_id)); }
+    const dlt = async () => { dispatch(deleteProject(_id)); history.push("/"); }
 
     return (
         <div className="container">
-            <h1>{name} <button onClick={lap} className="btn btn-primary">New Lap</button></h1>
+            <h1>
+                <span class="name me-3">{name}</span>
+                <button onClick={lap} className="btn btn-dark me-3">
+                    <i class="bi bi-plus-lg" style={{ fontSize: '1.35rem', color: 'white' }}></i>
+                </button>
+                <button onClick={dlt} className="btn btn-danger me-3">
+                    <i class="bi bi-trash" style={{ fontSize: '1.35rem', color: 'white' }}></i>
+                </button>
+            </h1>
             <ol className="container">{ts ? ts.map(time => <h5> <li key={time}>{timeParser(time)}</li> </h5>) : null}</ol>
         </div>
     )

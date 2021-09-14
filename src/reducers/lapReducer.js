@@ -1,4 +1,4 @@
-import { ADD_LAP, GET_PROJECT, CREATE_PROJECT } from '../constants/actionType'
+import { ADD_LAP, GET_PROJECT } from '../constants/actionType'
 
 const lapReducer = (state = {}, action) =>
 {
