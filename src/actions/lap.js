@@ -6,7 +6,7 @@ export const getProjects = () => async (dispatch) =>
 {
     try {
         const { data } = await api.getProjects()
-        dispatch({ type: GET_ALL, payload: data });
+        return dispatch({ type: GET_ALL, payload: data });
     }
     catch (error) {
         console.log(error)
